@@ -27,9 +27,9 @@ knn = KNeighborsClassifier(n_neighbors=5, algorithm='auto')
 knn.fit(X_scaled, y)
 
 # Save the encoders, scaler, and model
-joblib.dump(scaler, 'scaler.joblib')
-joblib.dump(gender_encoder, 'gender_encoder.joblib')
-joblib.dump(book_name_encoder, 'book_name_encoder.joblib')
-joblib.dump(knn, 'knn_model.joblib')
+joblib.dump(scaler, 'D:\\Projects\\Bite\\sinhala-book-recommendation-system\\backend\\bin\\knn\\scaler.joblib')
+joblib.dump(gender_encoder, 'D:\\Projects\\Bite\\sinhala-book-recommendation-system\\backend\\bin\\knn\\gender_encoder.joblib')
+joblib.dump(book_name_encoder, 'D:\\Projects\\Bite\\sinhala-book-recommendation-system\\backend\\bin\\knn\\book_name_encoder.joblib')
+joblib.dump(knn, 'D:\\Projects\\Bite\\sinhala-book-recommendation-system\\backend\\bin\\knn\\knn_model.joblib')
 
 print("Model retrained and saved successfully.")
