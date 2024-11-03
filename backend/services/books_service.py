@@ -18,7 +18,7 @@ def recommend_book(age, gender):
     # Predict the book name
     book_name_encoded = knn.predict(input_scaled)
     book_name = book_name_encoder.inverse_transform(book_name_encoded)
-    return book_name
+    return str(book_name)
 
 
 def get_recommendations(age: int, gender: str):
