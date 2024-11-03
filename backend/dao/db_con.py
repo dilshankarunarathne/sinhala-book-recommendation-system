@@ -2,6 +2,7 @@ import pymongo
 from bson import ObjectId
 
 from models.book_model import Book
+from models.token_model import Token
 from models.user_model import User
 
 # MongoDB connection
@@ -29,6 +30,19 @@ if book_collection_name not in collist:
 # Collections
 user_collection = mydb[user_collection_name]
 book_collection = mydb[book_collection_name]
+token_collection = mydb['tokens']
+
+
+def insert_token(token):
+    if isinstance(token, Token):
+        user_collection.insert_one(token.to_dict())
+    else:
+        raise TypeError("Expected a Token instance")
+
+
+def if_exists_token(token):
+    token_data = token_collection.find_one({"access_token": token.access_token})
+    return True if token_data else False
 
 
 # User operations
