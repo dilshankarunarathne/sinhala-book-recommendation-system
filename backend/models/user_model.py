@@ -1,5 +1,6 @@
 from bson import ObjectId
 
+
 class User:
     def __init__(self, _id=None, username=None, password=None, email=None, gender=None, age=None,
                  interested_categories=None):
