@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Form
 
+from services.book_info_service import get_info
 from services.books_service import get_recommendations
 from services.similar_books_service import get_similar_books
 
