@@ -7,7 +7,6 @@ from jose import JWTError, jwt
 
 from models.token_model import TokenData
 from auth.hashing import verify_password, is_token_blacklisted, SECRET_KEY, ALGORITHM
-from services.user_service import get_user
 
 """
     authorization function middleware
@@ -32,8 +31,6 @@ def authenticate_user(username: str, password: str):
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
-    if is_token_blacklisted(token):
-        raise credentials_exception
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
